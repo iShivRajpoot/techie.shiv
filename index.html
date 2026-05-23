@@ -39,61 +39,36 @@ body{
   --muted:#9ca3af;
 }
 
-/* PREMIUM CURSOR */
+/* CURSOR */
 
 #dot{
-  width:12px;
-  height:12px;
-  background:linear-gradient(135deg,#ff4fd8,#a855f7);
+  width:8px;
+  height:8px;
+  background:white;
   border-radius:50%;
   position:fixed;
   z-index:99999;
   pointer-events:none;
   transform:translate(-50%,-50%);
-  box-shadow:
-  0 0 12px rgba(255,79,216,.95),
-  0 0 35px rgba(168,85,247,.75);
 }
 
 #ring{
-  width:48px;
-  height:48px;
-  border:1.5px solid rgba(255,255,255,.22);
+  width:42px;
+  height:42px;
+  border:1.5px solid rgba(255,255,255,.45);
   border-radius:50%;
   position:fixed;
   z-index:99998;
   pointer-events:none;
   transform:translate(-50%,-50%);
-  background:rgba(255,255,255,.03);
-  backdrop-filter:blur(8px);
-  transition:
-  width .25s ease,
-  height .25s ease,
-  border-color .25s ease,
-  background .25s ease,
-  transform .2s ease;
-}
-
-#ring::before{
-  content:'';
-  position:absolute;
-  inset:-10px;
-  border-radius:50%;
-  background:radial-gradient(circle,
-  rgba(255,79,216,.15),
-  rgba(168,85,247,.08),
-  transparent 70%);
-  z-index:-1;
+  transition:.25s ease;
 }
 
 #ring.active{
-  width:82px;
-  height:82px;
-  border-color:rgba(255,79,216,.8);
+  width:70px;
+  height:70px;
+  border-color:rgba(255,79,216,.7);
   background:rgba(255,79,216,.08);
-  box-shadow:
-  0 0 30px rgba(255,79,216,.28),
-  0 0 60px rgba(168,85,247,.18);
 }
 
 /* NAVBAR */
@@ -270,6 +245,10 @@ nav{
   font-size:28px;
 }
 
+.social-btn:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
 .instagram{
   background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);
 }
@@ -281,6 +260,8 @@ nav{
 .telegram{
   background:linear-gradient(135deg,#229ED9,#5cc8ff);
 }
+
+/* PROFILE */
 
 .hero-right{
   position:relative;
@@ -315,6 +296,65 @@ nav{
   display:block;
 }
 
+.stat-card{
+  position:absolute;
+  background:rgba(17,24,39,.94);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  padding:10px 12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  backdrop-filter:blur(12px);
+  animation:floating 4s ease-in-out infinite;
+  z-index:5;
+}
+
+@keyframes floating{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
+}
+
+.top-card{
+  top:35px;
+  left:-45px;
+}
+
+.bottom-card{
+  bottom:60px;
+  right:-45px;
+}
+
+.icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+.blue{
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+}
+
+.purple{
+  background:linear-gradient(135deg,#a855f7,#ec4899);
+}
+
+.stat-label{
+  font-size:13px;
+  color:#c3c7d1;
+  font-weight:600;
+}
+
+.stat-val{
+  font-size:24px;
+  font-weight:900;
+}
+
 .name-pill{
   margin-top:24px;
   text-align:center;
@@ -326,7 +366,107 @@ nav{
   font-weight:900;
   letter-spacing:1px;
   color:white;
+  text-shadow:
+  0 0 12px rgba(255,255,255,.45),
+  0 0 22px rgba(255,79,216,.35),
+  0 0 42px rgba(168,85,247,.25);
+  box-shadow:
+  0 0 24px rgba(255,79,216,.12);
+  transition:.35s;
 }
+
+/* SECTIONS */
+
+section{
+  padding:100px 70px;
+}
+
+.container{
+  max-width:1300px;
+  margin:auto;
+}
+
+.sec-tag{
+  color:var(--pink);
+  font-weight:700;
+  margin-bottom:12px;
+  display:block;
+}
+
+.sec-title{
+  font-size:58px;
+  margin-bottom:18px;
+}
+
+.sec-sub{
+  color:var(--muted);
+  line-height:1.8;
+  max-width:720px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:50px;
+}
+
+.card,
+.service,
+.audience-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  padding:30px;
+  transition:.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.card p,
+.service p,
+.audience-card p{
+  color:#9ca3af;
+  line-height:1.8;
+}
+
+.big{
+  font-size:52px;
+  font-weight:900;
+  margin-top:12px;
+}
+
+.review{
+  color:#ffc83d;
+  margin-bottom:16px;
+}
+
+.handle{
+  margin-top:18px;
+  color:var(--pink);
+  font-weight:700;
+}
+
+/* CONTACT */
+
+.contact-wrapper{
+  display:flex;
+  justify-content:center;
+  margin-top:40px;
+}
+
+.email-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px 38px;
+  border-radius:24px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;
+  text-decoration:none;
+  font-weight:800;
+  transition:.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+/* FOOTER */
 
 footer{
   padding:50px 20px;
@@ -334,6 +474,8 @@ footer{
   border-top:1px solid rgba(255,255,255,.06);
   color:#9ca3af;
 }
+
+/* RESPONSIVE */
 
 @media(max-width:980px){
 
@@ -358,18 +500,42 @@ nav{
   font-size:58px;
 }
 
+.hero-sub{
+  font-size:18px;
+}
+
+.hero-btns,
+.socials{
+  justify-content:center;
+}
+
 .photo-wrap{
   width:310px;
   height:310px;
 }
 
-#dot,
-#ring{
-  display:none;
+.top-card{
+  left:-10px;
 }
 
-*{
-  cursor:auto!important;
+.bottom-card{
+  right:-10px;
+}
+
+section{
+  padding:80px 20px;
+}
+
+.sec-title{
+  font-size:40px;
+}
+
+.name-pill{
+  font-size:22px;
+}
+
+.social-btn{
+  min-width:100%;
 }
 
 }
@@ -389,11 +555,11 @@ TECHIE <span>SHIV</span>
 </div>
 
 <div class="nav-links">
-<a href="#">Stats</a>
-<a href="#">Audience</a>
-<a href="#">Services</a>
-<a href="#">Love</a>
-<a href="#">Contact</a>
+<a href="#stats">Stats</a>
+<a href="#audience">Audience</a>
+<a href="#services">Services</a>
+<a href="#testimonials">Love</a>
+<a href="#contact">Contact</a>
 </div>
 
 </nav>
@@ -423,7 +589,7 @@ Sharing things I wish I knew earlier 💯
 
 <div class="hero-btns">
 
-<a href="#" class="btn primary">
+<a href="#services" class="btn primary">
 Work With Me
 </a>
 
@@ -472,12 +638,34 @@ class="social-btn telegram">
 
 <div class="photo-wrap">
 
+<div class="stat-card top-card">
+
+<div class="icon blue">👥</div>
+
+<div>
+<div class="stat-label">Community</div>
+<div class="stat-val">3.5K+</div>
+</div>
+
+</div>
+
 <div class="photo-ring">
 
 <div class="photo-inner">
 
 <img src="profile.png" alt="Shiv Rajpoot">
 
+</div>
+
+</div>
+
+<div class="stat-card bottom-card">
+
+<div class="icon purple">📈</div>
+
+<div>
+<div class="stat-label">Current Reach</div>
+<div class="stat-val">2K+</div>
 </div>
 
 </div>
@@ -494,6 +682,196 @@ Shiv Rajpoot
 
 </section>
 
+<section id="stats">
+
+<div class="container">
+
+<span class="sec-tag">By The Numbers</span>
+
+<h2 class="sec-title">
+Performance & Growth
+</h2>
+
+<p class="sec-sub">
+Building a growing tech audience through AI, creator education,
+productivity tips and modern digital content.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Followers</h3>
+<div class="big">3.5K+</div>
+<p>Growing creator community on Instagram.</p>
+</div>
+
+<div class="card">
+<h3>Current Reach</h3>
+<div class="big">2K+</div>
+<p>Consistent audience interaction & visibility.</p>
+</div>
+
+<div class="card">
+<h3>Total Views</h3>
+<div class="big">50K+</div>
+<p>Cross-platform content performance.</p>
+</div>
+
+<div class="card">
+<h3>Engagement</h3>
+<div class="big">8.7%</div>
+<p>Strong creator audience retention.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="audience">
+
+<div class="container">
+
+<span class="sec-tag">Audience</span>
+
+<h2 class="sec-title">
+Who Watches My Content
+</h2>
+
+<div class="grid">
+
+<div class="audience-card">
+<h3>Tech Learners</h3>
+<p>People learning AI tools, productivity and modern technology.</p>
+</div>
+
+<div class="audience-card">
+<h3>Students</h3>
+<p>Students looking for smarter career and skill growth.</p>
+</div>
+
+<div class="audience-card">
+<h3>Creators</h3>
+<p>Content creators improving reach, editing and branding.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<div class="container">
+
+<span class="sec-tag">Services</span>
+
+<h2 class="sec-title">
+What I Can Help With
+</h2>
+
+<div class="grid">
+
+<div class="service">
+<h3>Brand Promotions</h3>
+<p>Promote products through engaging creator content.</p>
+</div>
+
+<div class="service">
+<h3>UGC Content</h3>
+<p>Short-form modern user-generated content for brands.</p>
+</div>
+
+<div class="service">
+<h3>Tech Content</h3>
+<p>Educational tech & AI focused content strategy.</p>
+</div>
+
+<div class="service">
+<h3>Creator Branding</h3>
+<p>Build a strong online presence with premium identity.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="testimonials">
+
+<div class="container">
+
+<span class="sec-tag">Community Love</span>
+
+<h2 class="sec-title">
+What People Say
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="review">★★★★★</div>
+<p>
+“I like how your reels are both smart and easy to understand.”
+</p>
+<div class="handle">@techmodee</div>
+</div>
+
+<div class="card">
+<div class="review">★★★★★</div>
+<p>
+“You always share useful things for creators. Keep going 🔥”
+</p>
+<div class="handle">@ankit_ankk</div>
+</div>
+
+<div class="card">
+<div class="review">★★★★★</div>
+<p>
+“Your consistency and content quality inspire me 💯”
+</p>
+<div class="handle">@techi.deep</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="container">
+
+<span class="sec-tag">
+Let's Work Together
+</span>
+
+<h2 class="sec-title">
+Ready To Build Something Amazing?
+</h2>
+
+<p class="sec-sub">
+For collaborations, sponsorships, creator partnerships or tech projects —
+let’s connect and create something impactful.
+</p>
+
+<div class="contact-wrapper">
+
+<a href="mailto:contact.shivrajpoot@gmail.com"
+class="email-btn">
+contact.shivrajpoot@gmail.com
+</a>
+
+</div>
+
+</div>
+
+</section>
+
 <footer>
 © 2026 Shiv Rajpoot — Premium Creator Portfolio
 </footer>
@@ -503,44 +881,37 @@ Shiv Rajpoot
 const dot=document.getElementById('dot');
 const ring=document.getElementById('ring');
 
-let mouseX=window.innerWidth/2;
-let mouseY=window.innerHeight/2;
+let mx=window.innerWidth/2;
+let my=window.innerHeight/2;
+let rx=mx;
+let ry=my;
 
-let ringX=mouseX;
-let ringY=mouseY;
+document.addEventListener('mousemove',(e)=>{
 
-let dotX=mouseX;
-let dotY=mouseY;
+mx=e.clientX;
+my=e.clientY;
 
-window.addEventListener('mousemove',(e)=>{
-
-mouseX=e.clientX;
-mouseY=e.clientY;
+dot.style.left=mx+'px';
+dot.style.top=my+'px';
 
 });
 
-function animateCursor(){
+function animate(){
 
-dotX+=(mouseX-dotX)*0.35;
-dotY+=(mouseY-dotY)*0.35;
+rx+=(mx-rx)*0.12;
+ry+=(my-ry)*0.12;
 
-ringX+=(mouseX-ringX)*0.14;
-ringY+=(mouseY-ringY)*0.14;
+ring.style.left=rx+'px';
+ring.style.top=ry+'px';
 
-dot.style.left=dotX+'px';
-dot.style.top=dotY+'px';
-
-ring.style.left=ringX+'px';
-ring.style.top=ringY+'px';
-
-requestAnimationFrame(animateCursor);
+requestAnimationFrame(animate);
 
 }
 
-animateCursor();
+animate();
 
 const hoverItems=document.querySelectorAll(
-'.btn,.social-btn,.name-pill,.nav-links a'
+'.btn,.social-btn,.card,.service,.audience-card,.name-pill,.stat-card,.email-btn'
 );
 
 hoverItems.forEach(item=>{
@@ -553,14 +924,6 @@ item.addEventListener('mouseleave',()=>{
 ring.classList.remove('active');
 });
 
-});
-
-window.addEventListener('mousedown',()=>{
-ring.style.transform='translate(-50%,-50%) scale(.85)';
-});
-
-window.addEventListener('mouseup',()=>{
-ring.style.transform='translate(-50%,-50%) scale(1)';
 });
 
 </script>
