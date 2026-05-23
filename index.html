@@ -520,8 +520,10 @@ footer{
   .social-btn{ min-width:44%; flex:1 1 44%; }
 
   .photo-wrap{ width:clamp(220px,55vw,340px); height:clamp(220px,55vw,340px); }
-  .top-card   { left:-20px; top:18px; }
-  .bottom-card{ right:-20px; bottom:40px; }
+  
+  /* Adjusted mobile layouts for stat cards so they never cover your face */
+  .top-card   { left:-25px; top:-20px; }
+  .bottom-card{ right:-25px; bottom:-10px; }
   .stat-val{ font-size:18px; }
 
   .store-grid{ grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
@@ -531,9 +533,11 @@ footer{
 @media(max-width:520px){
   .hero-inner{ gap:24px; }
   .social-btn{ min-width:100%; flex:1 1 100%; }
-  .photo-wrap{ width:220px; height:220px; }
-  .top-card   { left:-10px; top: -10px; }
-  .bottom-card{ right:-10px; bottom: 10px; }
+  .photo-wrap{ width:220px; height:220px; margin: 20px 0; }
+  
+  /* Perfectly aligned positions ensuring your photo is completely unobstructed */
+  .top-card   { left:-35px; top: -30px; }
+  .bottom-card{ right:-35px; bottom: -15px; }
   .icon{ width:36px; height:36px; font-size:14px; }
   .stat-label{ font-size:10px; }
   .stat-val  { font-size:16px; }
