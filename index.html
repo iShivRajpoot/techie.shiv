@@ -1,13 +1,448 @@
-<!-- ========================================= -->
-<!-- ADD THIS INSIDE NAVBAR -->
-<!-- ========================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<a href="#store">Store</a>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>TECHIE SHIV — Premium Creator Portfolio</title>
 
-<!-- ========================================= -->
-<!-- ADD THIS CSS BEFORE CONTACT CSS -->
-<!-- ========================================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  cursor:none!important;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#030712;
+  color:white;
+  overflow-x:hidden;
+}
+
+:root{
+  --pink:#ff4fd8;
+  --purple:#a855f7;
+  --blue:#3b82f6;
+  --muted:#9ca3af;
+}
+
+/* CURSOR */
+
+#dot{
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+  position:fixed;
+  z-index:99999;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+}
+
+#ring{
+  width:42px;
+  height:42px;
+  border:1.5px solid rgba(255,255,255,.45);
+  border-radius:50%;
+  position:fixed;
+  z-index:99998;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:.25s ease;
+}
+
+#ring.active{
+  width:70px;
+  height:70px;
+  border-color:rgba(255,79,216,.7);
+  background:rgba(255,79,216,.08);
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 60px;
+  background:rgba(3,7,18,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  z-index:1000;
+}
+
+.logo{
+  font-size:34px;
+  font-weight:900;
+}
+
+.logo span{
+  color:var(--pink);
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#9ca3af;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:white;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  padding:130px 70px 90px;
+  position:relative;
+}
+
+.hero::before{
+  content:'';
+  width:700px;
+  height:700px;
+  position:absolute;
+  right:-250px;
+  top:50%;
+  transform:translateY(-50%);
+  background:radial-gradient(circle,rgba(168,85,247,.18),transparent 70%);
+}
+
+.hero-inner{
+  max-width:1350px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:70px;
+  align-items:center;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  margin-bottom:28px;
+}
+
+.live-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#00ff9d;
+  box-shadow:0 0 10px #00ff9d;
+}
+
+.hero h1{
+  font-size:95px;
+  line-height:.96;
+  font-weight:900;
+  margin-bottom:26px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,var(--pink),var(--purple));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero-sub{
+  font-size:21px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:40px;
+}
+
+.hero-btns{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:18px 34px;
+  border-radius:22px;
+  text-decoration:none;
+  font-weight:800;
+  color:white;
+  transition:.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.btn:hover,
+.social-btn:hover,
+.card:hover,
+.service:hover,
+.audience-card:hover,
+.name-pill:hover,
+.email-btn:hover{
+  transform:scale(1.07) translateY(-4px);
+  box-shadow:0 18px 40px rgba(255,79,216,.18);
+}
+
+.primary{
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+}
+
+.secondary{
+  background:#101827;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* SOCIALS */
+
+.socials{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+  margin-top:28px;
+  align-items:center;
+}
+
+.social-btn{
+  min-width:230px;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  border-radius:24px;
+  text-decoration:none;
+  color:white;
+  font-weight:800;
+  font-size:20px;
+  transition:.35s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.social-btn i{
+  font-size:28px;
+}
+
+.social-btn:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
+.instagram{
+  background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);
+}
+
+.youtube{
+  background:linear-gradient(135deg,#ff0033,#ff4d4d);
+}
+
+.telegram{
+  background:linear-gradient(135deg,#229ED9,#5cc8ff);
+}
+
+/* PROFILE */
+
+.hero-right{
+  position:relative;
+}
+
+.photo-wrap{
+  width:430px;
+  height:430px;
+  position:relative;
+}
+
+.photo-ring{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  padding:7px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+}
+
+.photo-inner{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  border:8px solid #030712;
+}
+
+.photo-inner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.stat-card{
+  position:absolute;
+  background:rgba(17,24,39,.94);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  padding:10px 12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  backdrop-filter:blur(12px);
+  animation:floating 4s ease-in-out infinite;
+  z-index:5;
+}
+
+@keyframes floating{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
+}
+
+.top-card{
+  top:30px;
+  left:-25px;
+}
+
+.bottom-card{
+  bottom:55px;
+  right:-25px;
+}
+
+.icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+.blue{
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+}
+
+.purple{
+  background:linear-gradient(135deg,#a855f7,#ec4899);
+}
+
+.stat-label{
+  font-size:13px;
+  color:#c3c7d1;
+  font-weight:600;
+}
+
+.stat-val{
+  font-size:24px;
+  font-weight:900;
+}
+
+.name-pill{
+  margin-top:24px;
+  text-align:center;
+  padding:22px 42px;
+  border-radius:999px;
+  background:#111827;
+  border:1px solid rgba(255,255,255,.08);
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:1px;
+  color:white;
+  text-shadow:
+  0 0 12px rgba(255,255,255,.45),
+  0 0 22px rgba(255,79,216,.35),
+  0 0 42px rgba(168,85,247,.25);
+}
+
+/* SECTIONS */
+
+section{
+  padding:100px 70px;
+}
+
+.container{
+  max-width:1300px;
+  margin:auto;
+}
+
+.sec-tag{
+  color:var(--pink);
+  font-weight:700;
+  margin-bottom:12px;
+  display:block;
+}
+
+.sec-title{
+  font-size:58px;
+  margin-bottom:18px;
+}
+
+.sec-sub{
+  color:var(--muted);
+  line-height:1.8;
+  max-width:720px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:50px;
+}
+
+.card,
+.service,
+.audience-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  padding:30px;
+  transition:.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.card p,
+.service p,
+.audience-card p{
+  color:#9ca3af;
+  line-height:1.8;
+}
+
+.big{
+  font-size:52px;
+  font-weight:900;
+  margin-top:12px;
+}
+
+.review{
+  color:#ffc83d;
+  margin-bottom:16px;
+}
+
+.handle{
+  margin-top:18px;
+  color:var(--pink);
+  font-weight:700;
+}
+
+/* STORE */
 
 .product-img{
   width:100%;
@@ -28,19 +463,218 @@
   font-weight:800;
 }
 
+/* CONTACT */
 
-/* ========================================= */
-/* STORE SECTION */
-/* ========================================= */
-
-#store .grid{
-  margin-top:60px;
+.contact-wrapper{
+  display:flex;
+  justify-content:center;
+  margin-top:40px;
 }
 
+.email-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px 38px;
+  border-radius:24px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;
+  text-decoration:none;
+  font-weight:800;
+}
 
-/* ========================================= */
-/* ADD THIS FULL STORE SECTION BELOW SERVICES */
-/* ========================================= */
+/* FOOTER */
+
+footer{
+  padding:50px 20px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:#9ca3af;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:980px){
+
+nav{
+  padding:0 20px;
+}
+
+.nav-links{
+  display:none;
+}
+
+.hero{
+  padding:120px 20px 70px;
+}
+
+.hero-inner{
+  grid-template-columns:1fr;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:58px;
+}
+
+.hero-sub{
+  font-size:18px;
+}
+
+.hero-btns,
+.socials{
+  justify-content:center;
+}
+
+.photo-wrap{
+  width:310px;
+  height:310px;
+}
+
+.top-card{
+  left:-10px;
+}
+
+.bottom-card{
+  right:-10px;
+}
+
+section{
+  padding:80px 20px;
+}
+
+.sec-title{
+  font-size:40px;
+}
+
+.name-pill{
+  font-size:22px;
+}
+
+.social-btn{
+  min-width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="dot"></div>
+<div id="ring"></div>
+
+<nav>
+
+<div class="logo">
+TECHIE <span>SHIV</span>
+</div>
+
+<div class="nav-links">
+<a href="#stats">Stats</a>
+<a href="#audience">Audience</a>
+<a href="#services">Services</a>
+<a href="#store">Store</a>
+<a href="#testimonials">Love</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div>
+
+<div class="eyebrow">
+<div class="live-dot"></div>
+Open to Brand Collaborations
+</div>
+
+<h1>
+I Build Content<br>
+That Gets<br>
+<span class="gradient">Attention.</span>
+</h1>
+
+<p class="hero-sub">
+𝗟𝗲𝘀𝘀 scrolling. 𝗠𝗼𝗿𝗲 learning ⚡<br>
+Tech, AI & things worth knowing 💡<br>
+Sharing things I wish I knew earlier 💯
+</p>
+
+<div class="hero-btns">
+
+<a href="#services" class="btn primary">
+Work With Me
+</a>
+
+<a href="https://www.instagram.com/techie.shiv/" target="_blank" class="btn secondary">
+View Profile
+</a>
+
+</div>
+
+<div class="socials">
+
+<a href="https://www.instagram.com/techie.shiv/" target="_blank" class="social-btn instagram">
+<i class="fab fa-instagram"></i>
+<span>Instagram</span>
+</a>
+
+<a href="https://www.youtube.com/@techie.shiv" target="_blank" class="social-btn youtube">
+<i class="fab fa-youtube"></i>
+<span>YouTube</span>
+</a>
+
+<a href="https://t.me/techie_shiv" target="_blank" class="social-btn telegram">
+<i class="fab fa-telegram-plane"></i>
+<span>Telegram</span>
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="photo-wrap">
+
+<div class="stat-card top-card">
+<div class="icon blue">👥</div>
+<div>
+<div class="stat-label">Community</div>
+<div class="stat-val">3.5K+</div>
+</div>
+</div>
+
+<div class="photo-ring">
+<div class="photo-inner">
+<img src="profile.png" alt="Shiv Rajpoot">
+</div>
+</div>
+
+<div class="stat-card bottom-card">
+<div class="icon purple">📈</div>
+<div>
+<div class="stat-label">Current Reach</div>
+<div class="stat-val">2K+</div>
+</div>
+</div>
+
+</div>
+
+<div class="name-pill">
+Shiv Rajpoot
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <section id="store">
 
@@ -55,13 +689,10 @@ Recommended Creator Setup
 </h2>
 
 <p class="sec-sub">
-Tools, gadgets and accessories that can improve your
-productivity, content creation and learning experience.
+Tools, gadgets and accessories that can improve your productivity, content creation and learning experience.
 </p>
 
 <div class="grid">
-
-<!-- PRODUCT 1 -->
 
 <div class="card">
 
@@ -76,18 +707,14 @@ MacBook Creator Setup
 Perfect for creators, editing, coding and productivity work.
 </p>
 
-<a href="YOUR-AFFILIATE-LINK"
+<a href="https://amazon.in"
 target="_blank"
 class="btn primary"
 style="margin-top:20px;display:inline-block;">
-
 Buy Now
-
 </a>
 
 </div>
-
-<!-- PRODUCT 2 -->
 
 <div class="card">
 
@@ -102,18 +729,14 @@ Mechanical Keyboard
 Premium typing experience for coders and creators.
 </p>
 
-<a href="YOUR-AFFILIATE-LINK"
+<a href="https://amazon.in"
 target="_blank"
 class="btn primary"
 style="margin-top:20px;display:inline-block;">
-
 Buy Now
-
 </a>
 
 </div>
-
-<!-- PRODUCT 3 -->
 
 <div class="card">
 
@@ -128,91 +751,11 @@ Creator Microphone
 Professional audio quality for YouTube and reels.
 </p>
 
-<a href="YOUR-AFFILIATE-LINK"
+<a href="https://amazon.in"
 target="_blank"
 class="btn primary"
 style="margin-top:20px;display:inline-block;">
-
 Buy Now
-
-</a>
-
-</div>
-
-<!-- PRODUCT 4 -->
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?q=80&w=1200&auto=format&fit=crop"
-class="product-img">
-
-<h3 class="product-title">
-Wireless Gaming Mouse
-</h3>
-
-<p>
-Smooth performance for productivity and gaming.
-</p>
-
-<a href="YOUR-AFFILIATE-LINK"
-target="_blank"
-class="btn primary"
-style="margin-top:20px;display:inline-block;">
-
-Buy Now
-
-</a>
-
-</div>
-
-<!-- PRODUCT 5 -->
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop"
-class="product-img">
-
-<h3 class="product-title">
-Noise Cancelling Headphones
-</h3>
-
-<p>
-Immersive sound quality for work and focus.
-</p>
-
-<a href="YOUR-AFFILIATE-LINK"
-target="_blank"
-class="btn primary"
-style="margin-top:20px;display:inline-block;">
-
-Buy Now
-
-</a>
-
-</div>
-
-<!-- PRODUCT 6 -->
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
-class="product-img">
-
-<h3 class="product-title">
-Laptop Stand
-</h3>
-
-<p>
-Clean ergonomic setup for long coding sessions.
-</p>
-
-<a href="YOUR-AFFILIATE-LINK"
-target="_blank"
-class="btn primary"
-style="margin-top:20px;display:inline-block;">
-
-Buy Now
-
 </a>
 
 </div>
@@ -223,20 +766,89 @@ Buy Now
 
 </section>
 
+<section id="contact">
 
-<!-- ========================================= -->
-<!-- REPLACE THESE LINKS WITH YOUR AFFILIATE LINKS -->
-<!-- ========================================= -->
+<div class="container">
 
-https://amzn.to/xxxxx
+<span class="sec-tag">
+Let's Work Together
+</span>
 
+<h2 class="sec-title">
+Ready To Build Something Amazing?
+</h2>
 
-<!-- ========================================= -->
-<!-- EXAMPLE -->
-<!-- ========================================= -->
+<p class="sec-sub">
+For collaborations, sponsorships, creator partnerships or tech projects —
+let’s connect and create something impactful.
+</p>
 
-<a href="https://amzn.to/xxxxx"
-target="_blank"
-class="btn primary">
-Buy Now
+<div class="contact-wrapper">
+
+<a href="mailto:contact.shivrajpoot@gmail.com"
+class="email-btn">
+contact.shivrajpoot@gmail.com
 </a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Shiv Rajpoot — Premium Creator Portfolio
+</footer>
+
+<script>
+
+const dot=document.getElementById('dot');
+const ring=document.getElementById('ring');
+
+let mx=window.innerWidth/2;
+let my=window.innerHeight/2;
+let rx=mx;
+let ry=my;
+
+document.addEventListener('mousemove',(e)=>{
+mx=e.clientX;
+my=e.clientY;
+
+dot.style.left=mx+'px';
+dot.style.top=my+'px';
+});
+
+function animate(){
+
+rx+=(mx-rx)*0.12;
+ry+=(my-ry)*0.12;
+
+ring.style.left=rx+'px';
+ring.style.top=ry+'px';
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+const hoverItems=document.querySelectorAll(
+'.btn,.social-btn,.card,.name-pill,.stat-card,.email-btn'
+);
+
+hoverItems.forEach(item=>{
+
+item.addEventListener('mouseenter',()=>{
+ring.classList.add('active');
+});
+
+item.addEventListener('mouseleave',()=>{
+ring.classList.remove('active');
+});
+
+});
+
+</script>
+
+</body>
+</html>
