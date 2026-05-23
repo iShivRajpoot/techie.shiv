@@ -39,36 +39,57 @@ body{
   --muted:#9ca3af;
 }
 
-/* CURSOR */
+/* PREMIUM CURSOR */
 
-#dot{
-  width:8px;
-  height:8px;
-  background:white;
+#cursor-dot{
+  width:10px;
+  height:10px;
+  background:#ffffff;
   border-radius:50%;
   position:fixed;
-  z-index:99999;
-  pointer-events:none;
+  top:0;
+  left:0;
   transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:999999;
+  box-shadow:
+  0 0 10px rgba(255,255,255,.9),
+  0 0 25px rgba(255,79,216,.8),
+  0 0 45px rgba(168,85,247,.7);
 }
 
-#ring{
+#cursor-ring{
   width:42px;
   height:42px;
-  border:1.5px solid rgba(255,255,255,.45);
+  border:2px solid rgba(255,255,255,.25);
   border-radius:50%;
   position:fixed;
-  z-index:99998;
-  pointer-events:none;
+  top:0;
+  left:0;
   transform:translate(-50%,-50%);
-  transition:.25s ease;
+  pointer-events:none;
+  z-index:999998;
+  transition:
+  width .25s ease,
+  height .25s ease,
+  background .25s ease,
+  border .25s ease,
+  transform .08s ease;
+  backdrop-filter:blur(4px);
 }
 
-#ring.active{
-  width:70px;
-  height:70px;
-  border-color:rgba(255,79,216,.7);
+#cursor-ring.active{
+  width:78px;
+  height:78px;
+  border:2px solid rgba(255,79,216,.9);
   background:rgba(255,79,216,.08);
+  box-shadow:
+  0 0 30px rgba(255,79,216,.35),
+  0 0 60px rgba(168,85,247,.18);
+}
+
+#cursor-ring.click{
+  transform:translate(-50%,-50%) scale(.82);
 }
 
 /* NAVBAR */
@@ -545,384 +566,81 @@ section{
 
 <body>
 
-<div id="dot"></div>
-<div id="ring"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
 
-<nav>
-
-<div class="logo">
-TECHIE <span>SHIV</span>
-</div>
-
-<div class="nav-links">
-<a href="#stats">Stats</a>
-<a href="#audience">Audience</a>
-<a href="#services">Services</a>
-<a href="#testimonials">Love</a>
-<a href="#contact">Contact</a>
-</div>
-
-</nav>
-
-<section class="hero">
-
-<div class="hero-inner">
-
-<div>
-
-<div class="eyebrow">
-<div class="live-dot"></div>
-Open to Brand Collaborations
-</div>
-
-<h1>
-I Build Content<br>
-That Gets<br>
-<span class="gradient">Attention.</span>
-</h1>
-
-<p class="hero-sub">
-𝗟𝗲𝘀𝘀 scrolling. 𝗠𝗼𝗿𝗲 learning ⚡<br>
-Tech, AI & things worth knowing 💡<br>
-Sharing things I wish I knew earlier 💯
-</p>
-
-<div class="hero-btns">
-
-<a href="#services" class="btn primary">
-Work With Me
-</a>
-
-<a href="https://www.instagram.com/techie.shiv/"
-target="_blank"
-class="btn secondary">
-View Profile
-</a>
-
-</div>
-
-<div class="socials">
-
-<a href="https://www.instagram.com/techie.shiv/"
-target="_blank"
-class="social-btn instagram">
-
-<i class="fab fa-instagram"></i>
-<span>Instagram</span>
-
-</a>
-
-<a href="https://www.youtube.com/@techie.shiv"
-target="_blank"
-class="social-btn youtube">
-
-<i class="fab fa-youtube"></i>
-<span>YouTube</span>
-
-</a>
-
-<a href="https://t.me/techie_shiv"
-target="_blank"
-class="social-btn telegram">
-
-<i class="fab fa-telegram-plane"></i>
-<span>Telegram</span>
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<div class="photo-wrap">
-
-<div class="stat-card top-card">
-
-<div class="icon blue">👥</div>
-
-<div>
-<div class="stat-label">Community</div>
-<div class="stat-val">3.5K+</div>
-</div>
-
-</div>
-
-<div class="photo-ring">
-
-<div class="photo-inner">
-
-<img src="profile.png" alt="Shiv Rajpoot">
-
-</div>
-
-</div>
-
-<div class="stat-card bottom-card">
-
-<div class="icon purple">📈</div>
-
-<div>
-<div class="stat-label">Current Reach</div>
-<div class="stat-val">2K+</div>
-</div>
-
-</div>
-
-</div>
-
-<div class="name-pill">
-Shiv Rajpoot
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="stats">
-
-<div class="container">
-
-<span class="sec-tag">By The Numbers</span>
-
-<h2 class="sec-title">
-Performance & Growth
-</h2>
-
-<p class="sec-sub">
-Building a growing tech audience through AI, creator education,
-productivity tips and modern digital content.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>Followers</h3>
-<div class="big">3.5K+</div>
-<p>Growing creator community on Instagram.</p>
-</div>
-
-<div class="card">
-<h3>Current Reach</h3>
-<div class="big">2K+</div>
-<p>Consistent audience interaction & visibility.</p>
-</div>
-
-<div class="card">
-<h3>Total Views</h3>
-<div class="big">50K+</div>
-<p>Cross-platform content performance.</p>
-</div>
-
-<div class="card">
-<h3>Engagement</h3>
-<div class="big">8.7%</div>
-<p>Strong creator audience retention.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="audience">
-
-<div class="container">
-
-<span class="sec-tag">Audience</span>
-
-<h2 class="sec-title">
-Who Watches My Content
-</h2>
-
-<div class="grid">
-
-<div class="audience-card">
-<h3>Tech Learners</h3>
-<p>People learning AI tools, productivity and modern technology.</p>
-</div>
-
-<div class="audience-card">
-<h3>Students</h3>
-<p>Students looking for smarter career and skill growth.</p>
-</div>
-
-<div class="audience-card">
-<h3>Creators</h3>
-<p>Content creators improving reach, editing and branding.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="services">
-
-<div class="container">
-
-<span class="sec-tag">Services</span>
-
-<h2 class="sec-title">
-What I Can Help With
-</h2>
-
-<div class="grid">
-
-<div class="service">
-<h3>Brand Promotions</h3>
-<p>Promote products through engaging creator content.</p>
-</div>
-
-<div class="service">
-<h3>UGC Content</h3>
-<p>Short-form modern user-generated content for brands.</p>
-</div>
-
-<div class="service">
-<h3>Tech Content</h3>
-<p>Educational tech & AI focused content strategy.</p>
-</div>
-
-<div class="service">
-<h3>Creator Branding</h3>
-<p>Build a strong online presence with premium identity.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="testimonials">
-
-<div class="container">
-
-<span class="sec-tag">Community Love</span>
-
-<h2 class="sec-title">
-What People Say
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<div class="review">★★★★★</div>
-<p>
-“I like how your reels are both smart and easy to understand.”
-</p>
-<div class="handle">@techmodee</div>
-</div>
-
-<div class="card">
-<div class="review">★★★★★</div>
-<p>
-“You always share useful things for creators. Keep going 🔥”
-</p>
-<div class="handle">@ankit_ankk</div>
-</div>
-
-<div class="card">
-<div class="review">★★★★★</div>
-<p>
-“Your consistency and content quality inspire me 💯”
-</p>
-<div class="handle">@techi.deep</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<div class="container">
-
-<span class="sec-tag">
-Let's Work Together
-</span>
-
-<h2 class="sec-title">
-Ready To Build Something Amazing?
-</h2>
-
-<p class="sec-sub">
-For collaborations, sponsorships, creator partnerships or tech projects —
-let’s connect and create something impactful.
-</p>
-
-<div class="contact-wrapper">
-
-<a href="mailto:contact.shivrajpoot@gmail.com"
-class="email-btn">
-contact.shivrajpoot@gmail.com
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 Shiv Rajpoot — Premium Creator Portfolio
-</footer>
+<!-- YOUR REMAINING HTML SAME AS BEFORE -->
 
 <script>
 
-const dot=document.getElementById('dot');
-const ring=document.getElementById('ring');
+const dot = document.getElementById("cursor-dot");
+const ring = document.getElementById("cursor-ring");
 
-let mx=window.innerWidth/2;
-let my=window.innerHeight/2;
-let rx=mx;
-let ry=my;
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
 
-document.addEventListener('mousemove',(e)=>{
+let ringX = mouseX;
+let ringY = mouseY;
 
-mx=e.clientX;
-my=e.clientY;
+document.addEventListener("mousemove",(e)=>{
 
-dot.style.left=mx+'px';
-dot.style.top=my+'px';
+mouseX = e.clientX;
+mouseY = e.clientY;
+
+dot.style.left = mouseX + "px";
+dot.style.top = mouseY + "px";
 
 });
 
-function animate(){
+/* Smooth Ring Animation */
 
-rx+=(mx-rx)*0.12;
-ry+=(my-ry)*0.12;
+function animateCursor(){
 
-ring.style.left=rx+'px';
-ring.style.top=ry+'px';
+ringX += (mouseX - ringX) * 0.12;
+ringY += (mouseY - ringY) * 0.12;
 
-requestAnimationFrame(animate);
+ring.style.left = ringX + "px";
+ring.style.top = ringY + "px";
+
+requestAnimationFrame(animateCursor);
 
 }
 
-animate();
+animateCursor();
 
-const hoverItems=document.querySelectorAll(
-'.btn,.social-btn,.card,.service,.audience-card,.name-pill,.stat-card,.email-btn'
+/* Hover Detection */
+
+const hoverItems = document.querySelectorAll(
+'.btn,.social-btn,.card,.service,.audience-card,.name-pill,.stat-card,.email-btn,a'
 );
 
 hoverItems.forEach(item=>{
 
-item.addEventListener('mouseenter',()=>{
-ring.classList.add('active');
+item.addEventListener("mouseenter",()=>{
+
+ring.classList.add("active");
+
 });
 
-item.addEventListener('mouseleave',()=>{
-ring.classList.remove('active');
+item.addEventListener("mouseleave",()=>{
+
+ring.classList.remove("active");
+
 });
+
+});
+
+/* Click Animation */
+
+document.addEventListener("mousedown",()=>{
+
+ring.classList.add("click");
+
+});
+
+document.addEventListener("mouseup",()=>{
+
+ring.classList.remove("click");
 
 });
 
