@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TECHIE SHIV — Premium Creator Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 
@@ -34,7 +39,7 @@ body{
   --muted:#9ca3af;
 }
 
-/* CUSTOM CURSOR */
+/* CURSOR */
 
 #dot{
   width:8px;
@@ -210,31 +215,38 @@ nav{
   border:1px solid rgba(255,255,255,.08);
 }
 
-/* SOCIAL BUTTONS */
+/* SOCIALS */
 
 .socials{
   display:flex;
-  gap:16px;
+  gap:22px;
   flex-wrap:wrap;
-  margin-top:24px;
+  margin-top:28px;
+  align-items:center;
 }
 
 .social-btn{
+  min-width:230px;
+  height:76px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
-  padding:15px 24px;
-  border-radius:20px;
+  gap:14px;
+  border-radius:24px;
   text-decoration:none;
   color:white;
-  font-weight:700;
+  font-weight:800;
+  font-size:20px;
   transition:.35s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 
-.social-btn svg{
-  width:22px;
-  height:22px;
+.social-btn i{
+  font-size:28px;
+}
+
+.social-btn:hover{
+  transform:translateY(-5px) scale(1.05);
 }
 
 .instagram{
@@ -286,15 +298,16 @@ nav{
 
 .stat-card{
   position:absolute;
-  background:rgba(17,24,39,.92);
+  background:rgba(17,24,39,.94);
   border:1px solid rgba(255,255,255,.08);
-  border-radius:24px;
-  padding:8px 10px;
+  border-radius:22px;
+  padding:10px 12px;
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:10px;
   backdrop-filter:blur(12px);
   animation:floating 4s ease-in-out infinite;
+  z-index:5;
 }
 
 @keyframes floating{
@@ -304,23 +317,23 @@ nav{
 }
 
 .top-card{
-  top:15px;
-  left:-55px;
+  top:30px;
+  left:-25px;
 }
 
 .bottom-card{
-  bottom:40px;
-  right:-60px;
+  bottom:55px;
+  right:-25px;
 }
 
 .icon{
-  width:52px;
-  height:52px;
-  border-radius:18px;
+  width:48px;
+  height:48px;
+  border-radius:16px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:20px;
+  font-size:18px;
 }
 
 .blue{
@@ -332,32 +345,33 @@ nav{
 }
 
 .stat-label{
-  font-size:12px;
-  color:#9ca3af;
+  font-size:13px;
+  color:#c3c7d1;
+  font-weight:600;
 }
 
 .stat-val{
-  font-size:18px;
+  font-size:24px;
   font-weight:900;
 }
 
 .name-pill{
   margin-top:24px;
   text-align:center;
-  padding:20px 40px;
+  padding:22px 42px;
   border-radius:999px;
   background:#111827;
   border:1px solid rgba(255,255,255,.08);
-  font-size:28px;
+  font-size:30px;
   font-weight:900;
   letter-spacing:1px;
   color:white;
   text-shadow:
-  0 0 10px rgba(255,255,255,.5),
-  0 0 20px rgba(255,79,216,.4),
-  0 0 40px rgba(168,85,247,.3);
+  0 0 12px rgba(255,255,255,.45),
+  0 0 22px rgba(255,79,216,.35),
+  0 0 42px rgba(168,85,247,.25);
   box-shadow:
-  0 0 20px rgba(255,79,216,.12);
+  0 0 24px rgba(255,79,216,.12);
   transition:.35s;
 }
 
@@ -520,6 +534,10 @@ section{
   font-size:22px;
 }
 
+.social-btn{
+  min-width:100%;
+}
+
 }
 
 </style>
@@ -545,8 +563,6 @@ TECHIE <span>SHIV</span>
 </div>
 
 </nav>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -577,13 +593,13 @@ Sharing things I wish I knew earlier 💯
 Work With Me
 </a>
 
-<a href="https://www.instagram.com/techie.shiv/" target="_blank" class="btn secondary">
+<a href="https://www.instagram.com/techie.shiv/"
+target="_blank"
+class="btn secondary">
 View Profile
 </a>
 
 </div>
-
-<!-- SOCIALS -->
 
 <div class="socials">
 
@@ -591,17 +607,8 @@ View Profile
 target="_blank"
 class="social-btn instagram">
 
-<svg xmlns="http://www.w3.org/2000/svg"
-width="24"
-height="24"
-fill="currentColor"
-viewBox="0 0 448 512">
-
-<path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9 0-14.9 12-26.9 26.9-26.9 14.9 0 26.9 12 26.9 26.9zM398.8 80c-20.1-20.1-47-31.1-75.4-31.1H124.6C66.4 48.9 19 96.3 19 154.5v198.9c0 58.2 47.4 105.6 105.6 105.6h198.9c58.2 0 105.6-47.4 105.6-105.6V154.5c0-28.4-11-55.3-31.1-75.4z"/>
-
-</svg>
-
-Instagram
+<i class="fab fa-instagram"></i>
+<span>Instagram</span>
 
 </a>
 
@@ -609,35 +616,23 @@ Instagram
 target="_blank"
 class="social-btn youtube">
 
-<svg xmlns="http://www.w3.org/2000/svg"
-width="26"
-height="26"
-fill="currentColor"
-viewBox="0 0 576 512">
-
-<path d="M549.7 124.1c-6.3-23.7-24.8-42.2-48.5-48.5C456.6 64 288 64 288 64S119.4 64 74.8 75.6c-23.7 6.3-42.2 24.8-48.5 48.5C14.7 168.7 14.7 256 14.7 256s0 87.3 11.6 131.9c6.3 23.7 24.8 42.2 48.5 48.5C119.4 448 288 448 288 448s168.6 0 213.2-11.6c23.7-6.3 42.2-24.8 48.5-48.5C561.3 343.3 561.3 256 561.3 256s0-87.3-11.6-131.9zM232 338.2V173.8L361.8 256 232 338.2z"/>
-
-</svg>
-
-YouTube
+<i class="fab fa-youtube"></i>
+<span>YouTube</span>
 
 </a>
 
-<a href="https://t.me/techie_shiv" target="_blank" class="social-btn telegram">
+<a href="https://t.me/techie_shiv"
+target="_blank"
+class="social-btn telegram">
 
-<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-<path d="M16 3.039c0-.246-.221-.44-.466-.346L.623 8.39c-.284.11-.278.514.01.615l3.808 1.19 1.47 4.448c.09.272.448.332.623.104l2.07-2.69 3.93 2.9c.24.176.58.05.64-.237l2.825-13.29A.35.35 0 0 0 16 3.04Z"/>
-</svg>
-
-Telegram
+<i class="fab fa-telegram-plane"></i>
+<span>Telegram</span>
 
 </a>
 
 </div>
 
 </div>
-
-<!-- PROFILE -->
 
 <div class="hero-right">
 
@@ -687,8 +682,6 @@ Shiv Rajpoot
 
 </section>
 
-<!-- STATS -->
-
 <section id="stats">
 
 <div class="container">
@@ -736,8 +729,6 @@ productivity tips and modern digital content.
 
 </section>
 
-<!-- AUDIENCE -->
-
 <section id="audience">
 
 <div class="container">
@@ -770,8 +761,6 @@ Who Watches My Content
 </div>
 
 </section>
-
-<!-- SERVICES -->
 
 <section id="services">
 
@@ -810,8 +799,6 @@ What I Can Help With
 </div>
 
 </section>
-
-<!-- TESTIMONIALS -->
 
 <section id="testimonials">
 
@@ -855,8 +842,6 @@ What People Say
 
 </section>
 
-<!-- CONTACT -->
-
 <section id="contact">
 
 <div class="container">
@@ -876,7 +861,8 @@ let’s connect and create something impactful.
 
 <div class="contact-wrapper">
 
-<a href="mailto:contact.shivrajpoot@gmail.com" class="email-btn">
+<a href="mailto:contact.shivrajpoot@gmail.com"
+class="email-btn">
 contact.shivrajpoot@gmail.com
 </a>
 
