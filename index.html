@@ -376,14 +376,14 @@ footer{ padding:44px 20px; text-align:center; border-top:1px solid var(--border-
       <div class="photo-wrap">
         <div class="stat-card top-card">
           <div class="icon blue">👥</div>
-          <div><div class="stat-label">Followers</div><div class="stat-val">3.8K+</div></div>
+          <div><div class="stat-label">Followers</div><div class="stat-val" data-stat="followers" data-format="compact">3.9K</div></div>
         </div>
         <div class="photo-ring">
           <div class="photo-inner"><img src="profile.png" alt="Shiv Rajpoot"></div>
         </div>
         <div class="stat-card bottom-card">
           <div class="icon purple-icon">📈</div>
-          <div><div class="stat-label">Reach · 30d</div><div class="stat-val">355.8K</div></div>
+          <div><div class="stat-label">Reach · 30d</div><div class="stat-val" data-stat="reach" data-format="compact">355.8K</div></div>
         </div>
       </div>
       <div class="name-pill">Shiv Rajpoot</div>
@@ -400,12 +400,12 @@ footer{ padding:44px 20px; text-align:center; border-top:1px solid var(--border-
   <div class="container">
     <span class="sec-tag">By The Numbers</span>
     <h2 class="sec-title">Performance &amp; Growth</h2>
-    <p class="sec-sub">Instagram analytics · last 30 days</p>
+    <p class="sec-sub">Instagram analytics · last 30 days · <span id="stats-updated">updated regularly</span></p>
     <div class="grid">
-      <div class="card"><h3>Followers</h3><div class="big">3,875</div><p>Creator community on Instagram.</p></div>
-      <div class="card"><h3>Reach</h3><div class="big">355.8K</div><p>Unique accounts reached in the last 30 days.</p></div>
-      <div class="card"><h3>Views</h3><div class="big">423.3K</div><p>Total content views in the last 30 days.</p></div>
-      <div class="card"><h3>Engagement Rate</h3><div class="big">10.7%</div><p>Strong audience interaction.</p></div>
+      <div class="card"><h3>Followers</h3><div class="big" data-stat="followers" data-format="full">3,875</div><p>Creator community on Instagram.</p></div>
+      <div class="card"><h3>Reach</h3><div class="big" data-stat="reach" data-format="compact">355.8K</div><p>Unique accounts reached in the last 30 days.</p></div>
+      <div class="card"><h3>Views</h3><div class="big" data-stat="views" data-format="compact">423.3K</div><p>Total content views in the last 30 days.</p></div>
+      <div class="card"><h3>Engagement Rate</h3><div class="big" data-stat="engagement" data-format="percent">10.7%</div><p>Strong audience interaction.</p></div>
     </div>
   </div>
 </section>
@@ -581,6 +581,34 @@ document.addEventListener("DOMContentLoaded", () => {
   typewriterTextTarget = document.getElementById("typewriter-text");
   executeTypewriterLoop();
 });
+
+/* ── LIVE STATS (reads stats.json, updated automatically by GitHub Actions) ── */
+(function loadLiveStats(){
+  function compact(n){
+    if (n >= 1e6) return (Math.round(n/1e5)/10) + 'M';
+    if (n >= 1e3) return (Math.round(n/100)/10) + 'K';
+    return String(n);
+  }
+  function fmt(value, type){
+    if (type === 'percent') return value.toFixed(1) + '%';
+    if (type === 'full')    return value.toLocaleString('en-IN');
+    return compact(value);
+  }
+  fetch('stats.json?v=' + Date.now(), { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error('stats.json ' + r.status); return r.json(); })
+    .then(data => {
+      document.querySelectorAll('[data-stat]').forEach(el => {
+        const v = data[el.dataset.stat];
+        if (typeof v === 'number' && isFinite(v)) el.textContent = fmt(v, el.dataset.format);
+      });
+      const u = document.getElementById('stats-updated');
+      if (u && data.updated) {
+        const d = new Date(data.updated);
+        if (!isNaN(d)) u.textContent = 'updated ' + d.toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
+      }
+    })
+    .catch(() => { /* keep the numbers already written in the HTML */ });
+})();
 </script>
 </body>
 </html>
