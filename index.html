@@ -292,14 +292,15 @@ footer{ padding:44px 20px; text-align:center; border-top:1px solid var(--border-
   .photo-wrap{ width:240px; height:240px; margin-bottom: 50px; }
   .top-card { left: -10px; top: -20px; } 
   
-  .bottom-card{ 
-    left: 50% !important; 
-    right: auto !important; 
-    bottom: -40px !important; 
-    transform: translateX(-50%) !important; 
-    animation: floatingMobile 4s ease-in-out infinite !important;
+  /* Center the card with margins (not transform) so the float animation can run */
+  .bottom-card{
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    bottom: -40px;
+    animation: floating 4s ease-in-out infinite;
   }
-  @keyframes floatingMobile { 0%,100%{ transform:translateX(-50%) translateY(0); } 50% { transform:translateX(-50%) translateY(-6px); } }
   
   .icon{ width:32px; height:32px; font-size:14px; border-radius: 9px; }
   .stat-label{ font-size:9px; } .stat-val{ font-size:15px; }
